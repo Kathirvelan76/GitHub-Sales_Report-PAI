@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "469ff5398dbec451e3d2",
+  "displayName": "Page 2",
+  "displayOption": "FitToPage",
+  "height": 1060,
+  "width": 1617,
+  "pageBinding": {
+    "name": "cba8430c177559ad054e",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
