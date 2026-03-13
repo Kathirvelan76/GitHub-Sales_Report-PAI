@@ -3103,6 +3103,55 @@ table Measure
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Scenario Factor' =
+			
+			(1 + [Sales Driver]) *
+			(1 + [Volume Driver]) *
+			(1 + [GP Driver])
+		displayFolder: What if Analysis
+		lineageTag: 103549c9-783d-4d84-a8cd-2d3b60334d70
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'WhatIf Sales' =
+			
+			[Sales Total] * [Scenario Factor]
+		displayFolder: What if Analysis
+		lineageTag: efda22b6-e412-4b18-bcea-bfa4b6cbdd45
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'WhatIf Volume' =
+			
+			[Quantity Total] * [Scenario Factor]
+		displayFolder: What if Analysis
+		lineageTag: 13203312-b9bf-4431-a1fa-69104c11860e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'WhatIf GP' =
+			
+			[Profit Total] * [Scenario Factor]
+		displayFolder: What if Analysis
+		lineageTag: be2fd4b6-2354-437b-86b4-f8085983538f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'WhatIf GP %' =
+			
+			VAR BaseMargin =
+			    DIVIDE([Profit Total],[Sales Total],0)
+			
+			VAR ScenarioMargin =
+			    BaseMargin * (1 + [GP% Value])
+			
+			RETURN
+			ScenarioMargin
+		displayFolder: What if Analysis
+		lineageTag: 7a7457fc-4a71-4951-bdd3-267536608d29
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Unit
 		lineageTag: fa86d86e-a46b-4275-8d4e-2d07bbf59e01
 		summarizeBy: none
