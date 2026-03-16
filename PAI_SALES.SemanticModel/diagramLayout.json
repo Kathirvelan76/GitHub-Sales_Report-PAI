@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 5302.9148807067086,
-        "y": 388.36941486618969
+        "x": 1979.258849040534,
+        "y": 0
       },
       "nodes": [
         {
@@ -409,59 +409,12 @@
           "location": {
             "x": 6397.6819244346261,
             "y": 716.38804589692074
+            "y": 716.38804589692074
           },
           "nodeIndex": "What_IF_Category",
           "nodeLineageTag": "73a9bff9-51f4-429f-9c4e-8fbbd21acdf4",
           "size": {
             "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 677.18849525890585,
-            "y": 1384.7760917938415
-          },
-          "nodeIndex": "Customer_MainCat",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 6636.9298837748229,
-            "y": 692.38804589692074
-          },
-          "nodeIndex": "Category Slicer",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 6876.17784311502,
-            "y": 692.38804589692074
-          },
-          "nodeIndex": "Customers_Never_Bought",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 7115.4258024552164,
-            "y": 692.38804589692074
-          },
-          "nodeIndex": "Customers_Never_Bought_ByProperty",
-          "size": {
-            "height": 200,
             "width": 234
           },
           "zIndex": 0
