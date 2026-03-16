@@ -1030,6 +1030,13 @@ table Measure
 			        BLANK()
 			        )
 			
+			Var _mainnew=
+			    If(
+			        ISFILTERED('Category Slicer'[Property]),
+			        "Main Category(" & CONCATENATEX(VALUES('Category Slicer'[Property]), 'Category Slicer'[Property], ", ") & ")",
+			        BLANK()
+			        )
+			
 			
 			
 			
@@ -1061,7 +1068,8 @@ table Measure
 			                _range,
 			                _date,
 			                _finyear,
-			                _newold
+			                _newold,
+			                _mainnew
 			
 			
 			
@@ -3151,6 +3159,44 @@ table Measure
 		lineageTag: 7a7457fc-4a71-4951-bdd3-267536608d29
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Customers Who Bought Selected Category' = ```
+			
+			CALCULATETABLE(
+			    VALUES('Cust_Vend_Master'[CardCode]),
+			    REMOVEFILTERS('Warehouse_Master'),        -- ignore branch filter
+			    REMOVEFILTERS('Cust_Vend_Master'),      -- ignore customer filter  
+			    'Item_Master'[Property] = SELECTEDVALUE('Category Slicer'[Property])
+			)
+			```
+		displayFolder: Not Purchased Category
+		lineageTag: 7f7e25d6-0f08-47dd-8364-ea72d836fb54
+
+	measure 'Never Bought Flag' =
+			
+			VAR SelectedProperty =
+			    SELECTEDVALUE('Category Slicer'[Property])
+			
+			VAR CurrentCustomer =
+			    MAX('Cust_Vend_Master'[CardCode])
+			
+			VAR BoughtInProperty =
+			    CALCULATETABLE(
+			        DISTINCT('Customer_MainCategory'[CardCode]),
+			        'Customer_MainCategory'[Property] = SelectedProperty,
+			        REMOVEFILTERS('Cust_Vend_Master'),
+			        REMOVEFILTERS('Warehouse_Master')
+			    )
+			
+			RETURN
+			    IF(
+			        NOT ISBLANK(SelectedProperty),
+			        IF(NOT(CurrentCustomer IN BoughtInProperty), 1, 0),
+			        BLANK()
+			    )
+		formatString: 0
+		displayFolder: Not Purchased Category
+		lineageTag: 0142ce76-844f-4b5c-a458-1812b179f491
 
 	column Unit
 		lineageTag: fa86d86e-a46b-4275-8d4e-2d07bbf59e01

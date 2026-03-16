@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "adcddd9f73d60a1d6496",
+  "name": "1e622c07807694ee1062",
   "position": {
-    "x": 60.571428571428569,
-    "y": 155.75510204081633,
-    "z": 0,
-    "height": 830.69387755102036,
-    "width": 1027.5510204081631,
-    "tabOrder": 0
+    "x": 111.99786979097325,
+    "y": 146.31979763014246,
+    "z": 3,
+    "height": 841.7904406869925,
+    "width": 1036.8835041938491,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "2 Customer Trend"
+                      "Entity": "Cust_Vend_Master"
                     }
                   },
                   "Property": "CardCode"
                 }
               },
-              "queryRef": "2 Customer Trend.CardCode",
+              "queryRef": "Cust_Vend_Master.CardCode",
               "nativeQueryRef": "CardCode"
             },
             {
@@ -34,13 +34,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "2 Customer Trend"
+                      "Entity": "Cust_Vend_Master"
                     }
                   },
                   "Property": "CardName"
                 }
               },
-              "queryRef": "2 Customer Trend.CardName",
+              "queryRef": "Cust_Vend_Master.CardName",
               "nativeQueryRef": "CardName"
             },
             {
@@ -48,13 +48,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "2 Customer Trend"
+                      "Entity": "Warehouse_Master"
                     }
                   },
-                  "Property": "Order_Branch_Code"
+                  "Property": "WhsName"
                 }
               },
-              "queryRef": "2 Customer Trend.Order_Branch_Code",
+              "queryRef": "Warehouse_Master.WhsName",
               "nativeQueryRef": "Branch",
               "displayName": "Branch"
             }
@@ -68,7 +68,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Customer Trend"
+                    "Entity": "Cust_Vend_Master"
                   }
                 },
                 "Property": "CardCode"
@@ -466,13 +466,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "300.4367192947971D"
+                  "Value": "236.19566089442918D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "2 Customer Trend.CardCode"
+            "metadata": "Cust_Vend_Master.CardCode"
           }
         },
         {
@@ -480,13 +480,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "250.9495763719562D"
+                  "Value": "499.8886423517705D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "2 Customer Trend.Order_Branch_Code"
+            "metadata": "Cust_Vend_Master.CardName"
           }
         },
         {
@@ -494,13 +494,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "449.3351209738423D"
+                  "Value": "275.10329596699194D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "2 Customer Trend.CardName"
+            "metadata": "Warehouse_Master.WhsName"
           }
         }
       ]
@@ -597,61 +597,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "191801f9c378c2d0a647",
+        "name": "0c809b2217db493ed16a",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Cust_Vend_Master"
+                "Entity": "Warehouse_Master"
               }
             },
-            "Property": "CardType"
+            "Property": "WhsName"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "c",
-              "Entity": "Cust_Vend_Master",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "c"
-                          }
-                        },
-                        "Property": "CardType"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'C'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
+        "type": "Categorical"
       },
       {
-        "name": "1846505ca2c4e43aa18a",
+        "name": "f6d20cf55a9a218a9a97",
         "field": {
           "Measure": {
             "Expression": {
@@ -659,7 +619,7 @@
                 "Entity": "Measure"
               }
             },
-            "Property": "Final Eligible Customer"
+            "Property": "Never Bought Flag"
           }
         },
         "type": "Advanced",
@@ -684,7 +644,7 @@
                           "Source": "m"
                         }
                       },
-                      "Property": "Final Eligible Customer"
+                      "Property": "Never Bought Flag"
                     }
                   },
                   "Right": {
@@ -700,12 +660,12 @@
         "howCreated": "User"
       },
       {
-        "name": "a1752408ad04077ad2b3",
+        "name": "c6e6b3aab7c42c4006e7",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "2 Customer Trend"
+                "Entity": "Cust_Vend_Master"
               }
             },
             "Property": "CardCode"
@@ -714,29 +674,15 @@
         "type": "Categorical"
       },
       {
-        "name": "0a567df27abd08be7d0d",
+        "name": "e12319003d9559856a72",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "2 Customer Trend"
+                "Entity": "Cust_Vend_Master"
               }
             },
             "Property": "CardName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "96b9b3d022e0b359303a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "2 Customer Trend"
-              }
-            },
-            "Property": "Order_Branch_Code"
           }
         },
         "type": "Categorical"
